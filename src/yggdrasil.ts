@@ -12,6 +12,11 @@ import {
   InvalidateScheme,
 } from './schemes'
 
+const err = chalk.bold.red
+const ok = chalk.bold.green
+
+//https://authserver.mojang.com/
+
 /**
  * Authenticates a user using their password.
  * @param payload sends a JSON format to the server.
@@ -22,18 +27,15 @@ export function authenticate(payload: AuthenticateScheme) {
     .post('https://authserver.mojang.com/authenticate', payload)
     .then((res) => {
       if (res.status == 200) {
-        console.log(
-          chalk.bold.green('OK') +
-            ' in https://authserver.mojang.com/authenticate'
-        )
+        console.log(`${ok('OK')} in https://authserver.mojang.com/authenticate`)
         return res.data
       }
     })
     .catch((error) => {
       console.log(
-        `${chalk.bold.red('failure')} ${
-          error.response.data.error
-        } ${chalk.bold.red('on')} https://authserver.mojang.com/authenticate`
+        `${err('failure')} ${error.response.data.error} ${err(
+          'on'
+        )} https://authserver.mojang.com/authenticate`
       )
     })
 }
@@ -48,15 +50,13 @@ export function signout(payload: SignoutScheme) {
     .post('https://authserver.mojang.com/signout', payload)
     .then((res) => {
       if (res.status == 204)
-        console.log(
-          chalk.green.bold('OK') + ' in https://authserver.mojang.com/signout'
-        )
+        console.log(`${ok('OK')} in https://authserver.mojang.com/signout`)
     })
     .catch((error) => {
       console.log(
-        `${chalk.bold.red('failure')} ${
-          error.response.data.error
-        } ${chalk.bold.red('on')} https://authserver.mojang.com/signout`
+        `${err('failure')} ${error.response.data.error} ${err(
+          'on'
+        )} https://authserver.mojang.com/signout`
       )
     })
 }
@@ -71,17 +71,15 @@ export function refresh(payload: RefreshScheme) {
     .post('https://authserver.mojang.com/refresh', payload)
     .then((res) => {
       if (res.status == 200) {
-        console.log(
-          chalk.green.bold('OK') + ' in https://authserver.mojang.com/refresh'
-        )
+        console.log(`${ok('OK')} in https://authserver.mojang.com/refresh`)
         return res.data
       }
     })
     .catch((error) => {
       console.log(
-        `${chalk.bold.red('failure')} ${
-          error.response.data.error
-        } ${chalk.bold.red('on')} https://authserver.mojang.com/refresh`
+        `${err('failure')} ${error.response.data.error} ${err(
+          'on'
+        )} https://authserver.mojang.com/refresh`
       )
     })
 }
@@ -96,17 +94,15 @@ export function validate(payload: ValidateScheme) {
     .post('https://authserver.mojang.com/validate', payload)
     .then((res) => {
       if (res.status == 200) {
-        console.log(
-          chalk.green.bold('OK') + ' in https://authserver.mojang.com/validate'
-        )
+        console.log(`${ok('OK')} in https://authserver.mojang.com/validate`)
         return res.data
       }
     })
     .catch((error) => {
       console.log(
-        `${chalk.bold.red('failure')} ${
-          error.response.data.error
-        } ${chalk.bold.red('on')} https://authserver.mojang.com/validate`
+        `${err('failure')} ${error.response.data.error} ${err(
+          'on'
+        )} https://authserver.mojang.com/validate`
       )
     })
 }
@@ -122,18 +118,15 @@ export function invalidate(payload: InvalidateScheme) {
     .post('https://authserver.mojang.com/invalidate', payload)
     .then((res) => {
       if (res.status == 200) {
-        console.log(
-          chalk.green.bold('OK') +
-            ' in https://authserver.mojang.com/invalidate'
-        )
+        console.log(`${ok('OK')} in https://authserver.mojang.com/invalidate`)
         return res.data
       }
     })
     .catch((error) => {
       console.log(
-        `${chalk.bold.red('failure')} ${
-          error.response.data.error
-        } ${chalk.bold.red('on')} https://authserver.mojang.com/invalidate`
+        `${err('failure')} ${error.response.data.error} ${err(
+          'on'
+        )} https://authserver.mojang.com/invalidate`
       )
     })
 }
