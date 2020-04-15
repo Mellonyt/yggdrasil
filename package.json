@@ -1,9 +1,9 @@
 {
-  "name": "yggdrasil",
-  "version": "1.0.0",
+  "name": "@landstorm/yggdrasil",
+  "version": "1.1.0",
   "description": "Current Mojang Authentication Scheme.",
-  "main": "src/yggdrasil.ts",
-  "type": "module",
+  "main": "dist/yggdrasil.js",
+  "types": "dist/yggdrasil.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/landstorm/yggdrasil.git"
@@ -11,6 +11,10 @@
   "author": {
     "name": "Israel Calebe",
     "url": "https://github.com/landstorm/"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "tsc"
   },
   "license": "MIT",
   "bugs": {
